@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PomoChill - Produtividade com leveza e foco</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-container">
+                <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/0db14ed9-0c79-4a76-aa4f-22b853cb7a82.png" alt="PomoChill Logo" class="logo">
+                <h1 class="app-title">PomoChill</h1>
+            </div>
+            <p class="slogan">Foque, respire, conquiste.</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Mode Selector -->
+            <div class="mode-selector">
+                <button class="mode-btn active" data-mode="work">
+                    <span class="mode-icon">🎯</span>
+                    <span class="mode-label">Foco</span>
+                    <span class="mode-duration">25 min</span>
+                </button>
+                <button class="mode-btn" data-mode="shortBreak">
+                    <span class="mode-icon">☕</span>
+                    <span class="mode-label">Pausa Rápida</span>
+                    <span class="mode-duration">5 min</span>
+                </button>
+                <button class="mode-btn" data-mode="longBreak">
+                    <span class="mode-icon">🌱</span>
+                    <span class="mode-label">Pausa Longa</span>
+                    <span class="mode-duration">15 min</span>
+                </button>
+            </div>
+
+            <!-- Timer Section -->
+            <div class="timer-section">
+                <div class="timer-container">
+                    <svg class="timer-circle" viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" r="90" class="timer-track"></circle>
+                        <circle cx="100" cy="100" r="90" class="timer-progress" id="progress-circle"></circle>
+                    </svg>
+                    <div class="timer-display">
+                        <div class="time-text" id="time-display">25:00</div>
+                        <div class="mode-indicator" id="mode-indicator">Foco</div>
+                    </div>
+                </div>
+
+                <!-- Control Buttons -->
+                <div class="control-buttons">
+                    <button class="control-btn primary" id="start-pause-btn">
+                        <span class="btn-icon">▶️</span>
+                        <span class="btn-text">Iniciar</span>
+                    </button>
+                    <button class="control-btn secondary" id="reset-btn">
+                        <span class="btn-icon">⏹️</span>
+                        <span class="btn-text">Reset</span>
+                    </button>
+                    <button class="control-btn tertiary" id="skip-btn" style="display: none;">
+                        <span class="btn-icon">⏭️</span>
+                        <span class="btn-text">Pular</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Message Display -->
+            <div class="message-display" id="message-display">
+                <div class="message-content">
+                    <p class="encouraging-message" id="encouraging-message">Pronto para começar? Clique em Iniciar!</p>
+                </div>
+            </div>
+
+            <!-- Break Suggestions -->
+            <div class="break-suggestions hidden" id="break-suggestions">
+                <h3>💡 Sugestões para sua pausa:</h3>
+                <div class="suggestions-list" id="suggestions-list">
+                    <!-- Suggestions will be populated by JavaScript -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Statistics Panel -->
+        <aside class="stats-panel">
+            <h3 class="stats-title">📊 Sua Jornada</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value" id="cycles-completed">0</div>
+                    <div class="stat-label">Ciclos Completos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="focus-time">0h</div>
+                    <div class="stat-label">Tempo de Foco</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="breaks-taken">0</div>
+                    <div class="stat-label">Pausas Feitas</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Settings Button -->
+        <button class="settings-btn" id="settings-btn">
+            <span>⚙️</span>
+        </button>
+
+        <!-- Settings Modal -->
+        <div class="modal hidden" id="settings-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>⚙️ Configurações</h3>
+                    <button class="close-btn" id="close-settings">✕</button>
+                </div>
+                <div class="modal-body">
+                    <div class="setting-group">
+                        <label for="work-duration">Duração do Foco (minutos):</label>
+                        <input type="number" id="work-duration" min="1" max="60" value="25" class="form-control">
+                    </div>
+                    <div class="setting-group">
+                        <label for="short-break-duration">Pausa Rápida (minutos):</label>
+                        <input type="number" id="short-break-duration" min="1" max="30" value="5" class="form-control">
+                    </div>
+                    <div class="setting-group">
+                        <label for="long-break-duration">Pausa Longa (minutos):</label>
+                        <input type="number" id="long-break-duration" min="1" max="60" value="15" class="form-control">
+                    </div>
+                    <div class="setting-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="sound-enabled" checked>
+                            <span class="checkmark"></span>
+                            Sons de notificação
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn--primary" id="save-settings">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
