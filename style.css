@@ -921,6 +921,7 @@ body.break-mode {
   position: relative;
   width: var(--timer-size-mobile);
   height: var(--timer-size-mobile);
+  margin: 0 auto;
 }
 
 @media (min-width: 640px) {
@@ -961,8 +962,9 @@ body.break-mode {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) !important;
   text-align: center;
+  width: 100%;
 }
 
 .time-text {
@@ -970,6 +972,7 @@ body.break-mode {
   font-size: 3rem;
   font-weight: 300;
   color: var(--color-text);
+  line-height: 1.2;
   margin-bottom: var(--space-8);
   letter-spacing: -0.02em;
 }
@@ -1420,6 +1423,11 @@ body.break-mode {
 
 .timer-container.active .timer-display {
   animation: pulse 2s infinite;
+}
+
+.timer-container.active .time-text,
+.timer-container.active .mode-indicator {
+    transform: none;
 }
 
 /* Utilities */

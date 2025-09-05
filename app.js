@@ -1,6 +1,32 @@
 // PomoChill App - Simplified and Fixed JavaScript
 let pomoApp = null;
 
+// Callback global obrigatório
+function onYouTubeIframeAPIReady() {
+  if (pomoApp) {
+        pomoApp.ytPlayer = new YT.Player('chill-video', {
+            height: '0',
+            width: '0',
+            videoId: 'CfPxlb8-ZQ0',
+            playerVars: {
+                'autoplay': 0,
+                'controls': 1,
+                'playsinline': 1,
+                'rel': 0
+            },
+            events: {
+                'onReady': (event) => {
+                    console.log('YouTube Player ready');
+                    pomoApp.ytPlayer = event.target;
+                },
+                'onStateChange': (event) => {
+                    console.log('Player state changed:', event.data);
+                }
+            }
+        });
+    }
+}
+
 class PomoChill {
     constructor() {
         console.log('Initializing PomoChill...');
@@ -66,6 +92,9 @@ class PomoChill {
         // Language settings
         this.currentLanguage = localStorage.getItem('pomoChillLanguage') || 'en';
         this.translations = {};
+
+        pomoApp = this;
+        this.ytPlayer = null;
         
         // Initialize
         this.init();
@@ -240,6 +269,13 @@ class PomoChill {
         if (this.currentMode !== 'work') {
             this.elements.skipBtn.style.display = 'flex';
         }
+
+        // Play video only during work mode
+        console.log(this.currentMode, this.ytPlayer);
+        if (this.currentMode === 'work' && this.ytPlayer) {
+            console.log('Playing video...');
+            this.ytPlayer.playVideo();
+        }
         
         // Start countdown
         this.timer = setInterval(() => {
@@ -270,6 +306,11 @@ class PomoChill {
         this.isRunning = false;
         this.elements.timerContainer.classList.remove('active');
         clearInterval(this.timer);
+
+        // Pause video if it exists
+        if (this.ytPlayer && this.ytPlayer.pauseVideo) {
+            this.ytPlayer.pauseVideo();
+        }
         
         this.elements.startPauseBtn.innerHTML = `
             <span class="btn-icon">▶️</span>
@@ -327,6 +368,11 @@ class PomoChill {
         // Play sound
         if (this.soundEnabled) {
             this.playNotificationSound();
+        }
+
+        // Pause video when session completes
+        if (this.ytPlayer && this.ytPlayer.pauseVideo) {
+            this.ytPlayer.pauseVideo();
         }
         
         // Show completion message
@@ -392,7 +438,8 @@ class PomoChill {
         const seconds = this.timeLeft % 60;
         
         this.elements.timeDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        this.elements.modeIndicator.textContent = this.modeLabels[this.currentMode];
+        const modeText = this.translations[this.currentMode] || this.modeLabels[this.currentMode];
+        this.elements.modeIndicator.textContent = modeText;
     }
     
     updateProgress() {
