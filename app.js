@@ -147,6 +147,9 @@ class PomoChill {
             settingsModal: document.getElementById('settings-modal'),
             closeSettings: document.getElementById('close-settings'),
             saveSettings: document.getElementById('save-settings'),
+            statsBtn: document.getElementById('stats-btn'),
+            statsModal: document.getElementById('stats-modal'),
+            closeStats: document.getElementById('close-stats'),
             workDuration: document.getElementById('work-duration'),
             shortBreakDuration: document.getElementById('short-break-duration'),
             longBreakDuration: document.getElementById('long-break-duration'),
@@ -227,6 +230,23 @@ class PomoChill {
         this.elements.settingsModal.addEventListener('click', (e) => {
             if (e.target === this.elements.settingsModal) {
                 this.closeSettings();
+            }
+        });
+
+        // Stats button
+        this.elements.statsBtn.addEventListener('click', () => {
+            this.openStats();
+        });
+
+        // Close stats
+        this.elements.closeStats.addEventListener('click', () => {
+            this.closeStats();
+        });
+
+        // Modal background click for stats
+        this.elements.statsModal.addEventListener('click', (e) => {
+            if (e.target === this.elements.statsModal) {
+                this.closeStats();
             }
         });
         
@@ -583,6 +603,14 @@ class PomoChill {
         this.updateModeButtons();
         this.closeSettings();
         this.showMessage('Settings saved successfully!');
+    }
+
+    openStats() {
+        this.elements.statsModal.classList.remove('hidden');
+    }
+
+    closeStats() {
+        this.elements.statsModal.classList.add('hidden');
     }
 
     // Callback global chamado pelo SDK

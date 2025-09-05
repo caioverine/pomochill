@@ -88,33 +88,20 @@
                     <!-- Suggestions will be populated by JavaScript -->
                 </div>
             </div>
+            
+            <div id="g_id_onload"
+                data-client_id="614200990157-glr51nn38edhme0d3me9r4n9568io2ah.apps.googleusercontent.com"
+                data-callback="handleCredentialResponse">
+            </div>
+            <div class="g_id_signin" data-type="standard"></div>
         </main>
 
-        <div id="g_id_onload"
-            data-client_id="614200990157-glr51nn38edhme0d3me9r4n9568io2ah.apps.googleusercontent.com"
-            data-callback="handleCredentialResponse">
-        </div>
-        <div class="g_id_signin" data-type="standard"></div>
 
 
-        <!-- Statistics Panel -->
-        <aside class="stats-panel">
-            <h3 class="stats-title">📊 <span data-i18n="yourJourney">Your Journey</span></h3>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-value" id="cycles-completed">0</div>
-                    <div class="stat-label" data-i18n="completedCycles">Completed Cycles</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="focus-time">0h</div>
-                    <div class="stat-label" data-i18n="focusTime">Focus Time</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="breaks-taken">0</div>
-                    <div class="stat-label" data-i18n="breaksTaken">Breaks Taken</div>
-                </div>
-            </div>
-        </aside>
+        <!-- Statistics Button -->
+        <button class="stats-btn" id="stats-btn">
+            <span>📊</span>
+        </button>
 
         <!-- Settings Button -->
         <button class="settings-btn" id="settings-btn">
@@ -151,6 +138,32 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn--primary" id="save-settings" data-i18n="save">Save</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Modal -->
+        <div class="modal hidden" id="stats-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>📊 <span data-i18n="yourJourney">Your Journey</span></h3>
+                    <button class="close-btn" id="close-stats">✕</button>
+                </div>
+                <div class="modal-body">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="cycles-completed">0</div>
+                            <div class="stat-label" data-i18n="completedCycles">Completed Cycles</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="focus-time">0h</div>
+                            <div class="stat-label" data-i18n="focusTime">Focus Time</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="breaks-taken">0</div>
+                            <div class="stat-label" data-i18n="breaksTaken">Breaks Taken</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
