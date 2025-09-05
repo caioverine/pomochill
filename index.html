@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PomoChill - Produtividade com leveza e foco</title>
+    <title data-i18n="appTitle">PomoChill - Productivity with Ease and Focus</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -15,9 +15,9 @@
         <header class="header">
             <div class="logo-container">
                 <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/0db14ed9-0c79-4a76-aa4f-22b853cb7a82.png" alt="PomoChill Logo" class="logo">
-                <h1 class="app-title">PomoChill</h1>
+                <h1 class="app-title" data-i18n="appTitle">PomoChill</h1>
             </div>
-            <p class="slogan">Foque, respire, conquiste.</p>
+            <p class="slogan" data-i18n="slogan">Focus, breathe, achieve.</p>
         </header>
 
         <!-- Main Content -->
@@ -26,17 +26,17 @@
             <div class="mode-selector">
                 <button class="mode-btn active" data-mode="work">
                     <span class="mode-icon">🎯</span>
-                    <span class="mode-label">Foco</span>
+                    <span class="mode-label" data-i18n="focus">Focus</span>
                     <span class="mode-duration">25 min</span>
                 </button>
                 <button class="mode-btn" data-mode="shortBreak">
                     <span class="mode-icon">☕</span>
-                    <span class="mode-label">Pausa Rápida</span>
+                    <span class="mode-label" data-i18n="shortBreak">Short Break</span>
                     <span class="mode-duration">5 min</span>
                 </button>
                 <button class="mode-btn" data-mode="longBreak">
                     <span class="mode-icon">🌱</span>
-                    <span class="mode-label">Pausa Longa</span>
+                    <span class="mode-label" data-i18n="longBreak">Long Break</span>
                     <span class="mode-duration">15 min</span>
                 </button>
             </div>
@@ -50,7 +50,7 @@
                     </svg>
                     <div class="timer-display">
                         <div class="time-text" id="time-display">25:00</div>
-                        <div class="mode-indicator" id="mode-indicator">Foco</div>
+                        <div class="mode-indicator" id="mode-indicator" data-i18n="focus">Focus</div>
                     </div>
                 </div>
 
@@ -58,15 +58,15 @@
                 <div class="control-buttons">
                     <button class="control-btn primary" id="start-pause-btn">
                         <span class="btn-icon">▶️</span>
-                        <span class="btn-text">Iniciar</span>
+                        <span class="btn-text" data-i18n="start">Start</span>
                     </button>
                     <button class="control-btn secondary" id="reset-btn">
                         <span class="btn-icon">⏹️</span>
-                        <span class="btn-text">Reset</span>
+                        <span class="btn-text" data-i18n="reset">Reset</span>
                     </button>
                     <button class="control-btn tertiary" id="skip-btn" style="display: none;">
                         <span class="btn-icon">⏭️</span>
-                        <span class="btn-text">Pular</span>
+                        <span class="btn-text" data-i18n="skip">Skip</span>
                     </button>
                 </div>
             </div>
@@ -74,13 +74,13 @@
             <!-- Message Display -->
             <div class="message-display" id="message-display">
                 <div class="message-content">
-                    <p class="encouraging-message" id="encouraging-message">Pronto para começar? Clique em Iniciar!</p>
+                    <p class="encouraging-message" id="encouraging-message" data-i18n="readyToStart">Ready to start? Click Start!</p>
                 </div>
             </div>
 
             <!-- Break Suggestions -->
             <div class="break-suggestions hidden" id="break-suggestions">
-                <h3>💡 Sugestões para sua pausa:</h3>
+                <h3 data-i18n="suggestionsForBreak">💡 Suggestions for your break:</h3>
                 <div class="suggestions-list" id="suggestions-list">
                     <!-- Suggestions will be populated by JavaScript -->
                 </div>
@@ -89,19 +89,19 @@
 
         <!-- Statistics Panel -->
         <aside class="stats-panel">
-            <h3 class="stats-title">📊 Sua Jornada</h3>
+            <h3 class="stats-title">📊 <span data-i18n="yourJourney">Your Journey</span></h3>
             <div class="stats-grid">
                 <div class="stat-item">
                     <div class="stat-value" id="cycles-completed">0</div>
-                    <div class="stat-label">Ciclos Completos</div>
+                    <div class="stat-label" data-i18n="completedCycles">Completed Cycles</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-value" id="focus-time">0h</div>
-                    <div class="stat-label">Tempo de Foco</div>
+                    <div class="stat-label" data-i18n="focusTime">Focus Time</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-value" id="breaks-taken">0</div>
-                    <div class="stat-label">Pausas Feitas</div>
+                    <div class="stat-label" data-i18n="breaksTaken">Breaks Taken</div>
                 </div>
             </div>
         </aside>
@@ -115,37 +115,47 @@
         <div class="modal hidden" id="settings-modal">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>⚙️ Configurações</h3>
+                    <h3>⚙️ <span data-i18n="settings">Settings</span></h3>
                     <button class="close-btn" id="close-settings">✕</button>
                 </div>
                 <div class="modal-body">
                     <div class="setting-group">
-                        <label for="work-duration">Duração do Foco (minutos):</label>
+                        <label for="work-duration" data-i18n="focusDuration">Focus Duration (minutes):</label>
                         <input type="number" id="work-duration" min="1" max="60" value="25" class="form-control">
                     </div>
                     <div class="setting-group">
-                        <label for="short-break-duration">Pausa Rápida (minutos):</label>
+                        <label for="short-break-duration" data-i18n="shortBreakDuration">Short Break (minutes):</label>
                         <input type="number" id="short-break-duration" min="1" max="30" value="5" class="form-control">
                     </div>
                     <div class="setting-group">
-                        <label for="long-break-duration">Pausa Longa (minutos):</label>
+                        <label for="long-break-duration" data-i18n="longBreakDuration">Long Break (minutes):</label>
                         <input type="number" id="long-break-duration" min="1" max="60" value="15" class="form-control">
                     </div>
                     <div class="setting-group">
                         <label class="checkbox-label">
                             <input type="checkbox" id="sound-enabled" checked>
                             <span class="checkmark"></span>
-                            Sons de notificação
+                            <span data-i18n="notificationSounds">Notification Sounds</span>
                         </label>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn--primary" id="save-settings">Salvar</button>
+                    <button class="btn btn--primary" id="save-settings" data-i18n="save">Save</button>
                 </div>
             </div>
         </div>
+
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <label for="language">🌐</label>
+            <select id="language">
+                <option value="en">English</option>
+                <option value="pt">Português</option>
+            </select>
+        </div>
     </div>
 
+    <script src="translations.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
