@@ -537,6 +537,24 @@ class PomoChill {
         this.closeSettings();
         this.showMessage('Settings saved successfully!');
     }
+
+    // Callback global chamado pelo SDK
+    handleCredentialResponse(response) {
+        const user = this.parseJwt(response.credential);
+        console.log('Logado como:', user);
+        localStorage.setItem('googleUser', JSON.stringify(user));
+    }
+
+    // Função para decodificar JWT
+    parseJwt(token) {
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(atob(base64).split('').map(c =>
+            '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+        ).join(''));
+        return JSON.parse(jsonPayload);
+    }
+
     
     // Language support
     async changeLanguage(language) {
@@ -572,19 +590,19 @@ class PomoChill {
     }
 
     async loadTranslations(language) {
-    try {
-        if (!TRANSLATIONS[language]) {
-            throw new Error(`Translation not available for ${language}`);
+        try {
+            if (!TRANSLATIONS[language]) {
+                throw new Error(`Translation not available for ${language}`);
+            }
+            this.translations = TRANSLATIONS[language];
+            this.applyTranslations();
+            console.log(`Translations loaded successfully for ${language}`);
+            return true;
+        } catch (error) {
+            console.error('Error loading translations:', error);
+            return false;
         }
-        this.translations = TRANSLATIONS[language];
-        this.applyTranslations();
-        console.log(`Translations loaded successfully for ${language}`);
-        return true;
-    } catch (error) {
-        console.error('Error loading translations:', error);
-        return false;
     }
-}
 
     applyTranslations() {
         console.log('Applying translations...', this.translations);
@@ -679,6 +697,7 @@ document.addEventListener('DOMContentLoaded', function() {
     try {
         pomoApp = new PomoChill();
         window.pomoChillApp = pomoApp;
+        window.handleCredentialResponse = (response) => pomoApp.handleCredentialResponse(response);
         console.log('PomoChill app initialized successfully');
     } catch (error) {
         console.error('Failed to initialize PomoChill:', error);
