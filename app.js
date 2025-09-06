@@ -284,11 +284,6 @@ class PomoChill {
             <span class="btn-icon">⏸️</span>
             <span class="btn-text">Pause</span>
         `;
-        
-        // Show skip button for breaks
-        if (this.currentMode !== 'work') {
-            this.elements.skipBtn.style.display = 'flex';
-        }
 
         // Play video only during work mode
         console.log(this.currentMode, this.ytPlayer);
@@ -314,9 +309,11 @@ class PomoChill {
         
         // Handle break suggestions
         if (this.currentMode !== 'work') {
+            this.elements.skipBtn.style.display = 'flex';
             this.elements.breakSuggestions.classList.remove('hidden');
             this.renderBreakSuggestions();
         } else {
+            this.elements.skipBtn.style.display = 'none';
             this.elements.breakSuggestions.classList.add('hidden');
         }
     }
@@ -403,7 +400,12 @@ class PomoChill {
         
         // Auto-switch mode after delay
         setTimeout(() => {
-            this.autoSwitchMode();
+            if (this.currentMode !== 'work') {
+                // Força retorno para modo work após pausa
+                this.switchMode('work');
+            } else {
+                this.autoSwitchMode();
+            }
         }, 2000);
     }
     
@@ -411,7 +413,7 @@ class PomoChill {
         let nextMode;
         
         if (this.currentMode === 'work') {
-            nextMode = (this.completedCycles % 4 === 0) ? 'longBreak' : 'shortBreak';
+            nextMode = (this.completedCycles > 0 && this.completedCycles % 4 === 0) ? 'longBreak' : 'shortBreak';
         } else {
             nextMode = 'work';
         }
@@ -435,10 +437,20 @@ class PomoChill {
         this.updateModeButtons();
         this.updateProgress();
         
-        // Update body class and styles
+        // Update body class
         document.body.className = mode === 'work' ? '' : 'break-mode';
-        this.elements.progressCircle.className = mode === 'work' ? 'timer-progress' : 'timer-progress break-mode';
-        this.elements.startPauseBtn.className = mode === 'work' ? 'control-btn primary' : 'control-btn primary break-mode';
+        
+        // Fix: Use setAttribute for SVG element
+        if (mode === 'work') {
+            this.elements.progressCircle.setAttribute('class', 'timer-progress');
+        } else {
+            this.elements.progressCircle.setAttribute('class', 'timer-progress break-mode');
+        }
+        
+        // Update button classes
+        this.elements.startPauseBtn.className = mode === 'work' ? 
+            'control-btn primary' : 
+            'control-btn primary break-mode';
         
         // Reset UI state
         this.elements.startPauseBtn.innerHTML = `
@@ -571,18 +583,25 @@ class PomoChill {
         const shortBreakDuration = parseInt(this.elements.shortBreakDuration.value);
         const longBreakDuration = parseInt(this.elements.longBreakDuration.value);
         
+        // Validate numeric values
+        if (isNaN(workDuration) || isNaN(shortBreakDuration) || isNaN(longBreakDuration)) {
+            this.showError('Duration, Short break and Long break values must be numbers');
+            return;
+        }
+        
+        // Validate ranges
         if (workDuration < 1 || workDuration > 60) {
-            alert('Focus duration must be between 1 and 60 minutes');
+            this.showError('Focus duration must be between 1 and 60 minutes');
             return;
         }
         
         if (shortBreakDuration < 1 || shortBreakDuration > 30) {
-            alert('Short break must be between 1 and 30 minutes');
+            this.showError('Short break must be between 1 and 30 minutes');
             return;
         }
         
         if (longBreakDuration < 1 || longBreakDuration > 60) {
-            alert('Long break must be between 1 and 60 minutes');
+            this.showError('Long break must be between 1 and 60 minutes');
             return;
         }
         
@@ -763,6 +782,16 @@ class PomoChill {
         this.showMessage(this.translations.readyToStart || "Ready to start? Click Start!");
 
         console.log(`Language updated to: ${this.currentLanguage}`);
+    }
+
+    showError(message) {
+        const errorEl = document.querySelector('.error-message');
+        errorEl.textContent = message;
+        errorEl.classList.remove('hidden');
+
+        setTimeout(() => {
+            errorEl.classList.add('hidden');
+        }, 3000);
     }
 }
 
