@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "Pomodoro & Chill - Productivity timer with focus and break sessions",
   "main": "app.js",
-  "scripts": {},
+  "scripts": {
+    "dev": "node server.js",
+    "lint": "eslint app.js __tests__/**/*.js",
+    "lint:fix": "eslint app.js __tests__/**/*.js --fix"
+  },
   "devDependencies": {
     "@babel/core": "^7.23.3",
     "@babel/preset-env": "^7.23.3"
