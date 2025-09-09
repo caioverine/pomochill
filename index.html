@@ -3,69 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="appTitle">PomoChill - Productivity with Ease and Focus</title>
+    <!-- SEO Meta Tags -->
+    <title>PomoChill - Timer Pomodoro Online Grátis | Técnica Pomodoro para Produtividade</title>
+    <meta name="description" content="Timer Pomodoro online gratuito para aumentar sua produtividade. Use a técnica pomodoro com PomoChill - 25 min de foco, 5 min de pausa. Sem cadastro, funciona offline.">
+    <meta name="keywords" content="timer pomodoro, técnica pomodoro, pomodoro online, produtividade, gestão tempo, foco concentração, método pomodoro, timer online, pomodoro grátis">
+    <meta name="author" content="PomoChill">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://pomochill.com/">
+    
+    <!-- Hreflang for Multilingual -->
+    <link rel="alternate" hreflang="pt-BR" href="https://pomochill.com/">
+    <link rel="alternate" hreflang="en" href="https://pomochill.com/en/">
+    <link rel="alternate" hreflang="x-default" href="https://pomochill.com/">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="PomoChill - Timer Pomodoro Online Grátis">
+    <meta property="og:description" content="Aumente sua produtividade com o melhor timer Pomodoro online. Grátis, sem cadastro, com estatísticas e dicas de bem-estar.">
+    <meta property="og:image" content="https://pomochill.com/og-image.png">
+    <meta property="og:url" content="https://pomochill.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PomoChill">
+    <meta property="og:locale" content="pt_BR">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PomoChill - Timer Pomodoro Online Grátis">
+    <meta name="twitter:description" content="Timer Pomodoro online para produtividade. 25 min foco + 5 min pausa. Grátis e sem cadastro.">
+    <meta name="twitter:image" content="https://pomochill.com/twitter-card.png">
+    <meta name="twitter:site" content="@pomochill">
+    
+    <!-- Structured Data - JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PomoChill",
+        "description": "Timer Pomodoro online gratuito para aumentar produtividade usando a técnica pomodoro",
+        "url": "https://pomochill.com",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "BRL"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "PomoChill",
+            "url": "https://pomochill.com"
+        },
+        "featureList": [
+            "Timer Pomodoro 25/5 minutos",
+            "Estatísticas de produtividade",
+            "Sugestões de pausas",
+            "Interface multilíngue",
+            "Sem cadastro necessário"
+        ],
+        "screenshot": "https://pomochill.com/app-screenshot.png"
+    }
+    </script>
+
+    <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Structured Data for BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://pomochill.com/"
+            }
+        ]
+    }
+    </script>
     <div class="app-container">
-        <!-- Header -->
-        <header class="header">
+        <!-- Header with SEO-optimized content -->
+        <header class="header" role="banner">
             <div class="logo-container">
-                <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/0db14ed9-0c79-4a76-aa4f-22b853cb7a82.png" alt="PomoChill Logo" class="logo">
-                <h1 class="app-title" data-i18n="appTitle">PomoChill</h1>
+                <img src="pomochill_logo.png" alt="PomoChill - Timer Pomodoro Online" class="logo" width="48" height="48">
+                <h1 class="app-title">PomoChill - Timer Pomodoro Online</h1>
             </div>
-            <p class="slogan" data-i18n="slogan">Focus, breathe, achieve.</p>
+            <p class="slogan" data-i18n="slogan">Foque, respire, conquiste.</p>
         </header>
 
         <!-- Main Content -->
-        <main class="main-content">
+        <main class="main-content" role="main">
             <!-- Mode Selector -->
-            <div class="mode-selector">
-                <button class="mode-btn active" data-mode="work">
-                    <span class="mode-icon">🎯</span>
+            <div class="mode-selector" role="tablist" aria-label="Modos do Timer Pomodoro">
+                <button class="mode-btn active" data-mode="work" role="tab" aria-selected="true">
+                    <span class="mode-icon" aria-hidden="true">🎯</span>
                     <span class="mode-label" data-i18n="focus">Focus</span>
                     <span class="mode-duration">25 min</span>
                 </button>
-                <button class="mode-btn" data-mode="shortBreak">
-                    <span class="mode-icon">☕</span>
+                <button class="mode-btn" data-mode="shortBreak" role="tab" aria-selected="false">
+                    <span class="mode-icon" aria-hidden="true">☕</span>
                     <span class="mode-label" data-i18n="shortBreak">Short Break</span>
                     <span class="mode-duration">5 min</span>
                 </button>
-                <button class="mode-btn" data-mode="longBreak">
-                    <span class="mode-icon">🌱</span>
+                <button class="mode-btn" data-mode="longBreak" role="tab" aria-selected="false">
+                    <span class="mode-icon" aria-hidden="true">🌱</span>
                     <span class="mode-label" data-i18n="longBreak">Long Break</span>
                     <span class="mode-duration">15 min</span>
                 </button>
             </div>
 
             <!-- Timer Section -->
-            <div class="timer-section">
-                <div class="timer-container">
+            <div class="timer-section" aria-labelledby="timer-heading">
+                <div class="timer-container" role="timer" aria-label="Contador Pomodoro">
                     <svg class="timer-circle" viewBox="0 0 200 200">
                         <circle cx="100" cy="100" r="90" class="timer-track"></circle>
                         <circle cx="100" cy="100" r="90" class="timer-progress" id="progress-circle"></circle>
                     </svg>
                     <div class="timer-display">
-                        <div class="time-text" id="time-display">25:00</div>
+                        <div class="time-text" id="time-display" aria-live="polite">25:00</div>
                         <div class="mode-indicator" id="mode-indicator" data-i18n="focus">Focus</div>
                     </div>
                 </div>
 
                 <!-- Control Buttons -->
-                <div class="control-buttons">
-                    <button class="control-btn primary" id="start-pause-btn">
-                        <span class="btn-icon">▶️</span>
+                <div class="control-buttons" role="group" aria-label="Controles do Timer">
+                    <button class="control-btn primary" id="start-pause-btn" aria-describedby="timer-status">
+                        <span class="btn-icon" aria-hidden="true">▶️</span>
                         <span class="btn-text" data-i18n="start">Start</span>
                     </button>
                     <button class="control-btn secondary" id="reset-btn">
-                        <span class="btn-icon">⏹️</span>
+                        <span class="btn-icon" aria-hidden="true">⏹️</span>
                         <span class="btn-text" data-i18n="reset">Reset</span>
                     </button>
                     <button class="control-btn tertiary" id="skip-btn" style="display: none;">
-                        <span class="btn-icon">⏭️</span>
+                        <span class="btn-icon" aria-hidden="true">⏭️</span>
                         <span class="btn-text" data-i18n="skip">Skip</span>
                     </button>
                 </div>
@@ -89,14 +164,77 @@
                 </div>
             </div>
             
-            <div id="g_id_onload"
+            <!-- <div id="g_id_onload"
                 data-client_id="614200990157-glr51nn38edhme0d3me9r4n9568io2ah.apps.googleusercontent.com"
                 data-callback="handleCredentialResponse">
             </div>
-            <div class="g_id_signin" data-type="standard"></div>
+            <div class="g_id_signin" data-type="standard"></div> -->
+
+            <!-- SEO Content Section -->
+            <section class="seo-content" aria-labelledby="about-heading">
+                <h2 id="about-heading">Como Funciona a Técnica Pomodoro</h2>
+                <div class="content-grid">
+                    <article class="how-it-works">
+                        <h3>O que é a Técnica Pomodoro?</h3>
+                        <p>A <strong>técnica Pomodoro</strong> é um método de gestão de tempo desenvolvido por Francesco Cirillo que divide o trabalho em intervalos de <strong>25 minutos de foco</strong> seguidos de <strong>5 minutos de pausa</strong>.</p>
+                        
+                        <h3>Benefícios do Timer Pomodoro</h3>
+                        <ul>
+                            <li><strong>Melhora o foco:</strong> Sessões curtas eliminam distrações</li>
+                            <li><strong>Reduz a procrastinação:</strong> Tarefas parecem menos intimidantes</li>
+                            <li><strong>Aumenta produtividade:</strong> Pausas regulares mantêm a energia</li>
+                            <li><strong>Previne burnout:</strong> Descanso programado preserva a saúde mental</li>
+                        </ul>
+
+                        <h3>Como Usar o PomoChill</h3>
+                        <ol>
+                            <li>Escolha uma tarefa para trabalhar</li>
+                            <li>Clique em "Iniciar" para começar 25 minutos de foco</li>
+                            <li>Trabalhe com total concentração até o timer acabar</li>
+                            <li>Faça uma pausa de 5 minutos</li>
+                            <li>A cada 4 ciclos, faça uma pausa longa de 15-30 minutos</li>
+                        </ol>
+                    </article>
+
+                    <aside class="tips-sidebar">
+                        <h3>Dicas para Maximizar sua Produtividade</h3>
+                        <div class="tip-card">
+                            <h4>Para Estudantes</h4>
+                            <p>Use o timer Pomodoro para estudos intensivos. Alterne entre matérias a cada ciclo para manter o interesse.</p>
+                        </div>
+                        <div class="tip-card">
+                            <h4>Para Home Office</h4>
+                            <p>Defina metas específicas para cada Pomodoro. Use as pausas para alongamentos e hidratação.</p>
+                        </div>
+                        <div class="tip-card">
+                            <h4>Para Criativos</h4>
+                            <p>Permita que ideias fluam durante as pausas. Mantenha um bloco de notas para insights.</p>
+                        </div>
+                    </aside>
+                </div>
+            </section>
         </main>
 
+        <!-- FAQ Section for SEO -->
+        <section class="faq-section" aria-labelledby="faq-heading">
+            <h2 id="faq-heading">Perguntas Frequentes - Timer Pomodoro</h2>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>O que significa Pomodoro?</summary>
+                    <p>Pomodoro significa "tomate" em italiano. O nome vem do timer de cozinha em forma de tomate que Francesco Cirillo usava quando criou a técnica.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Posso mudar o tempo dos intervalos?</summary>
+                    <p>Sim! No PomoChill você pode personalizar a duração do foco e das pausas nas configurações para adaptar à sua necessidade.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>O timer funciona offline?</summary>
+                    <p>Sim, depois de carregar a página, o PomoChill funciona completamente offline, sem precisar de internet.</p>
+                </details>
+            </div>
+        </section>
 
+        <!-- Statistics and journey sections... -->
 
         <!-- Statistics Button -->
         <button class="stats-btn" id="stats-btn">
@@ -179,9 +317,44 @@
         </div>
     </div>
 
+    <!-- Schema markup for FAQs -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "O que significa Pomodoro?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pomodoro significa tomate em italiano. O nome vem do timer de cozinha em forma de tomate que Francesco Cirillo usava quando criou a técnica."
+                }
+            },
+            {
+                "@type": "Question", 
+                "name": "Posso mudar o tempo dos intervalos?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sim! No PomoChill você pode personalizar a duração do foco e das pausas nas configurações."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Preload critical resources -->
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="translations.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="app.js"></script>
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="app.js" as="script">
+    <!-- Service Worker for offline functionality -->
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js');
+    }
+    </script>
 </body>
 </html>

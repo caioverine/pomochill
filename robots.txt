@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pomochill.com/sitemap.xml
+
+# Block access to sensitive areas
+Disallow: /admin/
+Disallow: /*.json$
