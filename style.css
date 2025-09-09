@@ -1662,3 +1662,22 @@ input:focus-visible {
     padding: var(--space-16);
   }
 }
+
+/* Estilos para a seção de anúncios (Google AdSense) */
+.ad-section {
+  display: flex;
+  justify-content: center;
+  margin: var(--space-32) 0;
+  padding: var(--space-16);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.ad-section .adsbygoogle {
+  width: 100%;
+  max-width: 728px;
+  /* Garantir que anúncios responsivos se ajustem ao container */
+  display: block;
+  text-align: center;
+}
