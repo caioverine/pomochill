@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         <loc>https://pomochill.com/</loc>
-        <lastmod>2025-09-09</lastmod>
+        <lastmod>2025-09-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <xhtml:link rel="alternate" hreflang="pt-BR" href="https://pomochill.com/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://pomochill.com/en/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pomochill.com/"/>
+        <image:image>
+            <image:loc>https://pomochill.com/pomochill_logo.png</image:loc>
+            <image:title>PomoChill - Timer Pomodoro Online</image:title>
+            <image:caption>Logo do PomoChill, aplicação de timer Pomodoro para produtividade</image:caption>
+        </image:image>
     </url>
     <url>
         <loc>https://pomochill.com/en/</loc>
-        <lastmod>2025-09-09</lastmod>
+        <lastmod>2025-09-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="en" href="https://pomochill.com/en/"/>
         <xhtml:link rel="alternate" hreflang="pt-BR" href="https://pomochill.com/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pomochill.com/"/>
     </url>
 </urlset>
