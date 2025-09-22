@@ -1,9 +1,9 @@
-// PomoChill App - Simplified and Fixed JavaScript
+// PomoChill App - Versão Reestruturada para AdSense
 let pomoApp = null;
 
-// Callback global obrigatório
+// Callback global obrigatório para YouTube API
 function onYouTubeIframeAPIReady() {
-  if (pomoApp) {
+    if (pomoApp) {
         pomoApp.ytPlayer = new YT.Player('chill-video', {
             height: '0',
             width: '0',
@@ -53,44 +53,46 @@ class PomoChill {
         // Messages
         this.messages = {
             workStart: [
-                "Let's focus! You can do it.",
-                "Time to concentrate. Take a deep breath.",
-                "Full focus for the next few minutes!"
+                "Vamos focar! Você consegue.",
+                "Hora de concentrar. Respire fundo.",
+                "Foco total pelos próximos minutos!"
             ],
             breakStart: [
-                "Time for a well-deserved break!",
-                "Relax and recharge.",
-                "Breathe, stretch, and rest."
+                "Hora de uma pausa merecida!",
+                "Relaxe e recarregue suas energias.",
+                "Respire, alongue e descanse."
             ],
             workComplete: [
-                "Great job! Time for a break.",
-                "Focus session completed successfully!",
-                "You're doing really well!"
+                "Ótimo trabalho! Hora da pausa.",
+                "Sessão de foco concluída com sucesso!",
+                "Você está indo muito bem!"
             ],
             breakComplete: [
-                "Energy renewed! Let's continue.",
-                "Break completed. Ready to focus?",
-                "Rested mind, renewed focus!"
+                "Energia renovada! Vamos continuar.",
+                "Pausa concluída. Pronto para focar?",
+                "Mente descansada, foco renovado!"
             ]
         };
         
         this.breakSuggestions = [
-            "Take a deep breath for 30 seconds",
-            "Stretch your arms and neck",
-            "Hydrate with a glass of water",
-            "Look out the window for a moment",
-            "Do some eye exercises",
-            "Meditate for a few minutes"
+            "Respire fundo por 30 segundos",
+            "Alongue seus braços e pescoço",
+            "Hidrate-se com um copo d'água",
+            "Olhe pela janela por um momento",
+            "Faça alguns exercícios oculares",
+            "Medite por alguns minutos",
+            "Dê uma volta rápida",
+            "Ouça uma música relaxante"
         ];
         
         this.modeLabels = {
-            work: 'Focus',
-            shortBreak: 'Short Break',
-            longBreak: 'Long Break'
+            work: 'Foco',
+            shortBreak: 'Pausa Curta',
+            longBreak: 'Pausa Longa'
         };
         
         // Language settings
-        this.currentLanguage = localStorage.getItem('pomoChillLanguage') || 'en';
+        this.currentLanguage = localStorage.getItem('pomoChillLanguage') || 'pt';
         this.translations = {};
 
         pomoApp = this;
@@ -107,7 +109,7 @@ class PomoChill {
             return;
         }
         
-        // Carregar traduções antes de continuar
+        // Load translations
         try {
             await this.loadTranslations(this.currentLanguage);
             this.elements.languageSelector.value = this.currentLanguage;
@@ -282,11 +284,10 @@ class PomoChill {
         this.elements.timerContainer.classList.add('active');
         this.elements.startPauseBtn.innerHTML = `
             <span class="btn-icon">⏸️</span>
-            <span class="btn-text">Pause</span>
+            <span data-i18n="pause">Pausar</span>
         `;
 
         // Play video only during work mode
-        console.log(this.currentMode, this.ytPlayer);
         if (this.currentMode === 'work' && this.ytPlayer) {
             console.log('Playing video...');
             this.ytPlayer.playVideo();
@@ -331,10 +332,10 @@ class PomoChill {
         
         this.elements.startPauseBtn.innerHTML = `
             <span class="btn-icon">▶️</span>
-            <span class="btn-text">Resume</span>
+            <span data-i18n="start">Retomar</span>
         `;
         
-        this.showMessage("Paused. Ready to resume?");
+        this.showMessage("Pausado. Pronto para retomar?");
     }
     
     resetTimer() {
@@ -353,7 +354,7 @@ class PomoChill {
         // Reset UI
         this.elements.startPauseBtn.innerHTML = `
             <span class="btn-icon">▶️</span>
-            <span class="btn-text">Start</span>
+            <span data-i18n="start">Iniciar</span>
         `;
         
         this.elements.skipBtn.style.display = 'none';
@@ -401,7 +402,6 @@ class PomoChill {
         // Auto-switch mode after delay
         setTimeout(() => {
             if (this.currentMode !== 'work') {
-                // Força retorno para modo work após pausa
                 this.switchMode('work');
             } else {
                 this.autoSwitchMode();
@@ -419,7 +419,7 @@ class PomoChill {
         }
         
         this.switchMode(nextMode);
-        this.showMessage("Click Start when you're ready!");
+        this.showMessage("Clique em Iniciar quando estiver pronto!");
     }
     
     switchMode(mode) {
@@ -455,7 +455,7 @@ class PomoChill {
         // Reset UI state
         this.elements.startPauseBtn.innerHTML = `
             <span class="btn-icon">▶️</span>
-            <span class="btn-text">Start</span>
+            <span data-i18n="start">Iniciar</span>
         `;
         this.elements.skipBtn.style.display = 'none';
         this.elements.breakSuggestions.classList.add('hidden');
@@ -585,23 +585,23 @@ class PomoChill {
         
         // Validate numeric values
         if (isNaN(workDuration) || isNaN(shortBreakDuration) || isNaN(longBreakDuration)) {
-            this.showError('Duration, Short break and Long break values must be numbers');
+            this.showError('Valores de duração devem ser números');
             return;
         }
         
         // Validate ranges
         if (workDuration < 1 || workDuration > 60) {
-            this.showError('Focus duration must be between 1 and 60 minutes');
+            this.showError('Duração do foco deve ser entre 1 e 60 minutos');
             return;
         }
         
         if (shortBreakDuration < 1 || shortBreakDuration > 30) {
-            this.showError('Short break must be between 1 and 30 minutes');
+            this.showError('Pausa curta deve ser entre 1 e 30 minutos');
             return;
         }
         
         if (longBreakDuration < 1 || longBreakDuration > 60) {
-            this.showError('Long break must be between 1 and 60 minutes');
+            this.showError('Pausa longa deve ser entre 1 e 60 minutos');
             return;
         }
         
@@ -621,7 +621,7 @@ class PomoChill {
         
         this.updateModeButtons();
         this.closeSettings();
-        this.showMessage('Settings saved successfully!');
+        this.showMessage('Configurações salvas com sucesso!');
     }
 
     openStats() {
@@ -631,24 +631,6 @@ class PomoChill {
     closeStats() {
         this.elements.statsModal.classList.add('hidden');
     }
-
-    // Callback global chamado pelo SDK
-    handleCredentialResponse(response) {
-        const user = this.parseJwt(response.credential);
-        console.log('Logado como:', user);
-        localStorage.setItem('googleUser', JSON.stringify(user));
-    }
-
-    // Função para decodificar JWT
-    parseJwt(token) {
-        const base64Url = token.split('.')[1];
-        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        const jsonPayload = decodeURIComponent(atob(base64).split('').map(c =>
-            '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
-        ).join(''));
-        return JSON.parse(jsonPayload);
-    }
-
     
     // Language support
     async changeLanguage(language) {
@@ -664,12 +646,12 @@ class PomoChill {
             localStorage.setItem('pomoChillLanguage', language);
             document.documentElement.lang = language;
             
-            // Atualizar interface após carregar traduções
+            // Update interface after loading translations
             this.updateDisplay();
             this.updateModeButtons();
             this.updateStats();
             
-            // Mostrar mensagem de confirmação
+            // Show confirmation message
             const message = language === 'pt' ? 
                 'Idioma alterado para Português!' : 
                 'Language changed to English!';
@@ -678,7 +660,7 @@ class PomoChill {
             return true;
         } catch (error) {
             console.error('Error changing language:', error);
-            this.showMessage('Error changing language. Please try again.');
+            this.showMessage('Erro ao alterar idioma. Tente novamente.');
             return false;
         }
     }
@@ -703,7 +685,6 @@ class PomoChill {
         
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
-            console.log(`Translating element with key: ${key}`, element);
             
             if (this.translations[key]) {
                 if (element.tagName === 'TITLE') {
@@ -719,12 +700,9 @@ class PomoChill {
                 } else {
                     element.textContent = this.translations[key];
                 }
-                console.log(`Translated to: ${this.translations[key]}`);
-            } else {
-                console.warn(`Translation missing for key: ${key}`);
             }
         });
-    
+        
         // Update break suggestions if they're visible
         if (!this.elements.breakSuggestions.classList.contains('hidden')) {
             this.renderBreakSuggestions();
@@ -734,64 +712,68 @@ class PomoChill {
         document.documentElement.lang = this.currentLanguage;
 
         // Update messages for the current mode
-        this.messages = {
-            workStart: [
-                this.translations.workStartMessage1 || "Let's focus! You can do it.",
-                this.translations.workStartMessage2 || "Time to concentrate. Take a deep breath.",
-                this.translations.workStartMessage3 || "Full focus for the next few minutes!"
-            ],
-            breakStart: [
-                this.translations.breakStartMessage1 || "Time for a well-deserved break!",
-                this.translations.breakStartMessage2 || "Relax and recharge.",
-                this.translations.breakStartMessage3 || "Breathe, stretch, and rest."
-            ],
-            workComplete: [
-                this.translations.workCompleteMessage1 || "Great job! Time for a break.",
-                this.translations.workCompleteMessage2 || "Focus session completed successfully!",
-                this.translations.workCompleteMessage3 || "You're doing really well!"
-            ],
-            breakComplete: [
-                this.translations.breakCompleteMessage1 || "Energy renewed! Let's continue.",
-                this.translations.breakCompleteMessage2 || "Break completed. Ready to focus?",
-                this.translations.breakCompleteMessage3 || "Rested mind, renewed focus!"
-            ]
-        };
-
-        // Update break suggestions array
-        this.breakSuggestions = [
-            this.translations.takeABreath || "Take a deep breath for 30 seconds",
-            this.translations.stretchYourBody || "Stretch your arms and neck",
-            this.translations.drinkWater || "Hydrate with a glass of water",
-            this.translations.walkAround || "Walk around a bit",
-            this.translations.listenToMusic || "Listen to your favorite music",
-            this.translations.meditate || "Meditate for a few minutes",
-            this.translations.readSomething || "Read a few pages of a book",
-            this.translations.checkYourMessages || "Check your messages or emails"
-        ];
-
-        // Update mode labels
-        this.modeLabels = {
-            work: this.translations.focus || 'Focus',
-            shortBreak: this.translations.shortBreak || 'Short Break',
-            longBreak: this.translations.longBreak || 'Long Break'
-        };
+        this.updateMessagesFromTranslations();
 
         // Refresh current display
         this.updateDisplay();
         this.updateModeButtons();
         this.showMessage(this.translations.readyToStart || "Ready to start? Click Start!");
+    }
 
-        console.log(`Language updated to: ${this.currentLanguage}`);
+    updateMessagesFromTranslations() {
+        this.messages = {
+            workStart: [
+                this.translations.workStartMessage1 || "Vamos focar! Você consegue.",
+                this.translations.workStartMessage2 || "Hora de concentrar. Respire fundo.",
+                this.translations.workStartMessage3 || "Foco total pelos próximos minutos!"
+            ],
+            breakStart: [
+                this.translations.breakStartMessage1 || "Hora de uma pausa merecida!",
+                this.translations.breakStartMessage2 || "Relaxe e recarregue.",
+                this.translations.breakStartMessage3 || "Respire, alongue e descanse."
+            ],
+            workComplete: [
+                this.translations.workCompleteMessage1 || "Ótimo trabalho! Hora da pausa.",
+                this.translations.workCompleteMessage2 || "Sessão de foco concluída com sucesso!",
+                this.translations.workCompleteMessage3 || "Você está indo muito bem!"
+            ],
+            breakComplete: [
+                this.translations.breakCompleteMessage1 || "Energia renovada! Vamos continuar.",
+                this.translations.breakCompleteMessage2 || "Pausa concluída. Pronto para focar?",
+                this.translations.breakCompleteMessage3 || "Mente descansada, foco renovado!"
+            ]
+        };
+
+        // Update break suggestions array
+        this.breakSuggestions = [
+            this.translations.takeABreath || "Respire fundo por 30 segundos",
+            this.translations.stretchYourBody || "Alongue seus braços e pescoço",
+            this.translations.drinkWater || "Hidrate-se com um copo d'água",
+            this.translations.walkAround || "Dê uma volta",
+            this.translations.listenToMusic || "Ouça sua música favorita",
+            this.translations.meditate || "Medite por alguns minutos",
+            this.translations.readSomething || "Leia algumas páginas de um livro",
+            this.translations.checkYourMessages || "Verifique suas mensagens ou e-mails"
+        ];
+
+        // Update mode labels
+        this.modeLabels = {
+            work: this.translations.focus || 'Foco',
+            shortBreak: this.translations.shortBreak || 'Pausa Curta',
+            longBreak: this.translations.longBreak || 'Pausa Longa'
+        };
     }
 
     showError(message) {
         const errorEl = document.querySelector('.error-message');
-        errorEl.textContent = message;
-        errorEl.classList.remove('hidden');
+        if (errorEl) {
+            errorEl.textContent = message;
+            errorEl.classList.remove('hidden');
 
-        setTimeout(() => {
-            errorEl.classList.add('hidden');
-        }, 3000);
+            setTimeout(() => {
+                errorEl.classList.add('hidden');
+            }, 3000);
+        }
     }
 }
 
@@ -801,7 +783,6 @@ document.addEventListener('DOMContentLoaded', function() {
     try {
         pomoApp = new PomoChill();
         window.pomoChillApp = pomoApp;
-        window.handleCredentialResponse = (response) => pomoApp.handleCredentialResponse(response);
         console.log('PomoChill app initialized successfully');
     } catch (error) {
         console.error('Failed to initialize PomoChill:', error);
@@ -812,7 +793,18 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('beforeunload', (e) => {
     if (pomoApp && pomoApp.isRunning) {
         e.preventDefault();
-        e.returnValue = 'You have an active session. Are you sure you want to leave?';
+        e.returnValue = 'Você tem uma sessão ativa. Tem certeza que deseja sair?';
         return e.returnValue;
     }
+});
+
+// Initialize AdSense ads when page loads
+window.addEventListener('load', function() {
+    // Initialize AdSense ads if they exist
+    const adsElements = document.querySelectorAll('.adsbygoogle');
+    adsElements.forEach(ad => {
+        if (ad.getAttribute('data-adsbygoogle-status') !== 'done') {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        }
+    });
 });
