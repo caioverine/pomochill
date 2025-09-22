@@ -1,8 +1,21 @@
 User-agent: *
 Allow: /
 
+# Sitemap
 Sitemap: https://pomochill.com/sitemap.xml
 
 # Block access to sensitive areas
 Disallow: /admin/
 Disallow: /*.json$
+Disallow: /node_modules/
+Disallow: /.git/
+
+# AdSense optimization
+Allow: /ads.txt
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
