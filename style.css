@@ -1604,12 +1604,16 @@ a:hover {
   background-color: rgba(var(--color-teal-500-rgb), 0.02);
   border-radius: var(--radius-base);
   border: 1px solid rgba(var(--color-teal-500-rgb), 0.1);
+  min-width: 320px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .ad-section .adsbygoogle {
   width: 100%;
   max-width: 728px;
-  display: block;
+  min-width: 300px;
+  display: block !important;
   text-align: center;
   min-height: 90px;
 }
@@ -2055,6 +2059,20 @@ a:hover {
   .calc-result {
     background: var(--color-charcoal-700);
   }
+}
+
+/* Mobile fix */
+@media (max-width: 480px) {
+    .ad-section {
+        margin: var(--space-16) 0;
+        padding: var(--space-8);
+        min-width: 300px;
+    }
+    
+    .ad-section .adsbygoogle {
+        min-width: 280px;
+        max-width: calc(100vw - 32px);
+    }
 }
 
 /* Focus states */
