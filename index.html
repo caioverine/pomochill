@@ -3,6 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NM0PPSW65W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-NM0PPSW65W');
+    </script>
+
     <title>Timer Pomodoro Online Grátis | PomoChill - Cronômetro Pomodoro 25 Minutos</title>
     
     <!-- SEO Meta Tags - OTIMIZADO -->
@@ -567,6 +578,63 @@
             // Observe all strategic ad containers
             document.querySelectorAll('.ad-strategic').forEach(ad => {
                 adObserver.observe(ad);
+            });
+        });
+    </script>
+
+    <script>
+        // Rastreamento de eventos do Timer Pomodoro
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Evento: Timer iniciado
+            const startBtn = document.getElementById('start-pause-btn');
+            if (startBtn) {
+                startBtn.addEventListener('click', function() {
+                    gtag('event', 'timer_started', {
+                        'event_category': 'Timer',
+                        'event_label': 'Pomodoro Started'
+                    });
+                });
+            }
+            
+            // Evento: Ciclo completado
+            window.addEventListener('pomodoroComplete', function() {
+                gtag('event', 'cycle_completed', {
+                    'event_category': 'Timer',
+                    'event_label': 'Pomodoro Cycle Completed'
+                });
+            });
+            
+            // Evento: Configurações alteradas
+            const saveSettingsBtn = document.getElementById('save-settings');
+            if (saveSettingsBtn) {
+                saveSettingsBtn.addEventListener('click', function() {
+                    gtag('event', 'settings_changed', {
+                        'event_category': 'Settings',
+                        'event_label': 'User Changed Settings'
+                    });
+                });
+            }
+            
+            // Evento: Idioma alterado
+            const langSelector = document.getElementById('language');
+            if (langSelector) {
+                langSelector.addEventListener('change', function(e) {
+                    gtag('event', 'language_changed', {
+                        'event_category': 'Language',
+                        'event_label': e.target.value
+                    });
+                });
+            }
+            
+            // Evento: Clique em anúncio (monitorar performance)
+            document.querySelectorAll('.adsbygoogle').forEach(function(ad, index) {
+                ad.addEventListener('click', function() {
+                    gtag('event', 'ad_clicked', {
+                        'event_category': 'AdSense',
+                        'event_label': 'Ad Position ' + (index + 1)
+                    });
+                });
             });
         });
     </script>

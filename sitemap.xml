@@ -5,7 +5,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         <loc>https://pomochill.com/</loc>
-        <lastmod>2025-09-22</lastmod>
+        <lastmod>2025-10-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <xhtml:link rel="alternate" hreflang="pt-BR" href="https://pomochill.com/"/>
@@ -25,5 +25,11 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://pomochill.com/en/"/>
         <xhtml:link rel="alternate" hreflang="pt-BR" href="https://pomochill.com/"/>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://pomochill.com/"/>
+    </url>
+    <url>
+        <loc>https://pomochill.com/index.html</loc>
+        <lastmod>2025-10-17</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
     </url>
 </urlset>
