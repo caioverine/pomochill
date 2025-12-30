@@ -1,706 +1,262 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NM0PPSW65W"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-NM0PPSW65W');
-    </script>
-
-    <title>Timer Pomodoro Online Grátis | PomoChill - Cronômetro Pomodoro 25 Minutos</title>
     
-    <!-- SEO Meta Tags - OTIMIZADO -->
-    <meta name="description" content="Timer Pomodoro online grátis brasileiro. Use nosso cronômetro Pomodoro de 25 minutos para aplicar a técnica Pomodoro para estudar e trabalhar com mais produtividade.">
-    <meta name="keywords" content="timer pomodoro online grátis, cronômetro pomodoro 25 minutos, técnica pomodoro para estudar, aplicativo pomodoro brasileiro, pomodoro online, timer foco">
+    <!-- SEO Meta Tags -->
+    <title>Timer Pomodoro Online Grátis | PomoChill - Cronômetro Pomodoro 25 Minutos</title>
+    <meta name="description" content="Timer Pomodoro online grátis. Use nosso cronômetro Pomodoro de 25 minutos para aplicar a técnica Pomodoro para estudar e aumentar produtividade.">
+    <meta name="keywords" content="timer pomodoro online grátis, cronômetro pomodoro 25 minutos, técnica pomodoro, pomodoro online">
     <meta name="author" content="PomoChill">
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://pomochill.com/">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Timer Pomodoro Online Grátis | PomoChill">
-    <meta property="og:description" content="Aplicativo Pomodoro brasileiro para aumentar sua produtividade. Cronômetro Pomodoro de 25 minutos grátis para estudar e trabalhar.">
+    <meta property="og:title" content="PomoChill - Timer Pomodoro Online Grátis">
+    <meta property="og:description" content="Melhor cronômetro Pomodoro online. Aumente sua produtividade com persistência, notificações e histórico semanal.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pomochill.com">
+    <meta property="og:url" content="https://pomochill.com/">
     
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://pomochill.com">
-    
-    <!-- AdSense Script -->
+    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9321995672209438" crossorigin="anonymous"></script>
     
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="app.js" as="script">
-    <link rel="preload" href="translations.js" as="script">
-    
-    <!-- Schema.org Markup for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "PomoChill - Timer Pomodoro Online Grátis",
-      "description": "Timer Pomodoro online grátis brasileiro com cronômetro de 25 minutos para técnica Pomodoro",
-      "applicationCategory": "ProductivityApplication",
-      "operatingSystem": "Any",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "BRL"
-      }
-    }
-    </script>
 </head>
 <body>
-    <!-- Language Selector (Fixed Position) -->
-    <div class="language-selector">
-        🌐
-        <select id="language">
-            <option value="pt" data-i18n="portuguese">Português</option>
-            <option value="en" data-i18n="english">English</option>
-        </select>
-    </div>
-
     <div class="app-container">
-        <!-- Header -->
         <header class="header">
-            <div class="logo-container">
-                <img src="pomochill_logo.png" alt="PomoChill - Timer Pomodoro Online Grátis" class="logo">
-                <h1 class="app-title" data-i18n="appTitle">PomoChill</h1>
-            </div>
-            <p class="slogan" data-i18n="slogan">Timer Pomodoro online grátis - Foque, respire, conquiste com técnicas comprovadas.</p>
+            <h1 class="app-title">⏱️ PomoChill - Timer Pomodoro Online Grátis</h1>
+            <p class="slogan">Cronômetro Pomodoro 25 minutos • Foque, respire, conquiste</p>
         </header>
 
-        <!-- Quick SEO Intro -->
-        <section class="quick-intro">
-            <p>O melhor <strong>timer Pomodoro online grátis</strong> do Brasil! Use nosso <strong>cronômetro Pomodoro 25 minutos</strong> para aplicar a <strong>técnica Pomodoro para estudar</strong> e trabalhar com máxima produtividade.</p>
-        </section>
+        <main class="main-content">
+            <!-- Quick Intro Section -->
+            <section class="quick-intro">
+                <p><strong>PomoChill</strong> é o melhor <strong>timer pomodoro online grátis</strong> para aumentar sua produtividade. Use nosso <strong>cronômetro Pomodoro de 25 minutos</strong> para aplicar a <strong>técnica Pomodoro para estudar</strong>, trabalhar ou focar em qualquer projeto.</p>
+            </section>
 
-        <!-- Timer Application -->
-        <section class="timer-application">
-            <h2 data-i18n="timerTitle">Cronômetro Pomodoro 25 Minutos - Timer Online Grátis</h2>
-            
-            <!-- Mode Selector -->
-            <div class="mode-selector">
-                <button class="mode-btn active" data-mode="work">
-                    <div class="mode-icon">🎯</div>
-                    <div class="mode-label" data-i18n="focus">Foco</div>
-                    <div class="mode-duration">25 min</div>
-                </button>
-                <button class="mode-btn" data-mode="shortBreak">
-                    <div class="mode-icon">☕</div>
-                    <div class="mode-label" data-i18n="shortBreak">Pausa Curta</div>
-                    <div class="mode-duration">5 min</div>
-                </button>
-                <button class="mode-btn" data-mode="longBreak">
-                    <div class="mode-icon">🌿</div>
-                    <div class="mode-label" data-i18n="longBreak">Pausa Longa</div>
-                    <div class="mode-duration">15 min</div>
-                </button>
-            </div>
-
-            <!-- Timer Display -->
-            <div class="timer-container">
-                <svg class="timer-circle" width="280" height="280">
-                    <circle cx="140" cy="140" r="90" class="timer-track"></circle>
-                    <circle cx="140" cy="140" r="90" class="timer-progress" id="progress-circle"></circle>
-                </svg>
-                <div class="timer-display">
-                    <div class="time-text" id="time-display">25:00</div>
-                    <div class="mode-indicator" id="mode-indicator" data-i18n="focus">Foco</div>
+            <!-- Timer Application -->
+            <section class="timer-application">
+                <h2 class="sr-only">Timer Pomodoro</h2>
+                
+                <!-- Mode Selector -->
+                <div class="mode-selector">
+                    <button class="mode-btn active" data-mode="work">
+                        <span>🎯</span>
+                        <span>Foco</span>
+                        <span>25 min</span>
+                    </button>
+                    <button class="mode-btn" data-mode="shortBreak">
+                        <span>☕</span>
+                        <span>Pausa Curta</span>
+                        <span>5 min</span>
+                    </button>
+                    <button class="mode-btn" data-mode="longBreak">
+                        <span>🌳</span>
+                        <span>Pausa Longa</span>
+                        <span>15 min</span>
+                    </button>
                 </div>
+
+                <!-- Timer Display -->
+                <div class="timer-container">
+                    <svg class="timer-circle" width="280" height="280">
+                        <circle class="timer-track" cx="140" cy="140" r="90"></circle>
+                        <circle id="progress-circle" class="timer-progress" cx="140" cy="140" r="90"></circle>
+                    </svg>
+                    <div class="timer-display">
+                        <div id="time-display" class="time-text">25:00</div>
+                        <div id="mode-indicator" class="mode-indicator">Foco</div>
+                    </div>
+                </div>
+
+                <!-- Control Buttons -->
+                <div class="control-buttons">
+                    <button id="start-pause-btn" class="control-btn primary">
+                        <span class="btn-icon">▶️</span>
+                        <span>Iniciar</span>
+                    </button>
+                    <button id="reset-btn" class="control-btn secondary">
+                        <span class="btn-icon">🔄</span>
+                        <span>Reset</span>
+                    </button>
+                </div>
+
+                <!-- Stats Display -->
+                <div id="stats-display" class="stats-display"></div>
+                
+                <!-- Weekly Chart (NOVA FUNCIONALIDADE 4) -->
+                <div id="weekly-chart" class="weekly-chart"></div>
+            </section>
+
+            <!-- First Advertisement -->
+            <div class="ad-strategic">
+                <div class="ad-label">Publicidade</div>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-9321995672209438"
+                     data-ad-slot="8199812113"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
 
-            <!-- Control Buttons -->
-            <div class="control-buttons">
-                <button class="control-btn primary" id="start-pause-btn">
-                    <span class="btn-icon">▶️</span>
-                    <span data-i18n="start">Iniciar</span>
-                </button>
-                <button class="control-btn secondary" id="reset-btn">
-                    <span class="btn-icon">🔄</span>
-                    <span data-i18n="reset">Reiniciar</span>
-                </button>
-                <button class="control-btn tertiary" id="skip-btn" style="display: none;">
-                    <span class="btn-icon">⏭️</span>
-                    <span data-i18n="skip">Pular</span>
-                </button>
+            <!-- Educational Content -->
+            <section class="educational-content">
+                <h2>O Que é a Técnica Pomodoro?</h2>
+                
+                <p>A <strong>técnica Pomodoro</strong> é um método de gestão de tempo que divide seu trabalho em ciclos de <strong>25 minutos de foco intenso</strong> seguidos de <strong>5 minutos de pausa</strong>. Este <strong>timer Pomodoro online grátis</strong> implementa a técnica perfeitamente.</p>
+
+                <h3>Funcionalidades do PomoChill</h3>
+                <ul>
+                    <li><strong>💾 Persistência:</strong> Timer continua se você atualizar a página</li>
+                    <li><strong>📱 Wake Lock:</strong> Tela não dorme durante o Pomodoro</li>
+                    <li><strong>📢 Notificações:</strong> Aviso quando seu ciclo termina</li>
+                    <li><strong>📊 Histórico Semanal:</strong> Gráfico visual de seus Pomodoros</li>
+                    <li><strong>⌨️ Atalhos:</strong> ESPAÇO, R, N, S para controle rápido</li>
+                </ul>
+
+                <h3>Como Usar Este Timer Pomodoro Online</h3>
+                <ol>
+                    <li>Escolha o que deseja trabalhar ou estudar</li>
+                    <li>Clique em "Iniciar" para começar 25 minutos de foco intenso</li>
+                    <li>Trabalhe com total concentração até o cronômetro acabar</li>
+                    <li>Faça uma pausa de 5 minutos usando o botão de modo "Pausa Curta"</li>
+                    <li>Repita! A cada 4 ciclos completos, faça uma pausa longa de 15 minutos</li>
+                </ol>
+
+                <h3>Benefícios da Técnica Pomodoro</h3>
+                <ul>
+                    <li>Melhora o foco e concentração</li>
+                    <li>Reduz procrastinação</li>
+                    <li>Aumenta produtividade</li>
+                    <li>Previne cansaço mental</li>
+                    <li>Melhora memória e aprendizado</li>
+                </ul>
+
+                <h3>Como Funciona a Técnica Pomodoro na Prática</h3>
+                <p>A <strong>técnica Pomodoro para estudar</strong> baseia-se em cinco etapas fundamentais que maximizam tanto a produtividade quanto o bem-estar mental. Cada ciclo completo inclui planejamento, execução, pausa e reflexão.</p>
+                
+                <p><strong>Escolha uma tarefa específica:</strong> Defina claramente o que será realizado nos próximos 25 minutos.</p>
+                
+                <p><strong>Configure o cronômetro Pomodoro 25 minutos:</strong> Use nosso timer online grátis e comece a trabalhar com foco total.</p>
+                
+                <p><strong>Trabalhe com foco total:</strong> Elimine distrações, silencie notificações e concentre-se 100% na tarefa.</p>
+                
+                <p><strong>Pare quando o timer tocar:</strong> Mesmo que esteja no meio de algo importante, respeite o intervalo.</p>
+                
+                <p><strong>Faça uma pausa de 5 minutos:</strong> Levante-se, alongue-se, hidrate-se ou respire profundamente.</p>
+
+                <p>Após completar 4 ciclos (aproximadamente 2 horas) usando nosso <strong>cronômetro Pomodoro</strong>, faça uma pausa mais longa de 15-30 minutos.</p>
+
+                <h3>Como Adaptar o Timer Pomodoro Para Diferentes Perfis</h3>
+                <p><strong>Estudantes usando a técnica Pomodoro para estudar:</strong> Alternem entre matérias a cada ciclo para manter o interesse. O histórico semanal motiva a manter a consistência.</p>
+
+                <p><strong>Profissionais Remotos com o cronômetro Pomodoro:</strong> Definam metas específicas para cada Pomodoro de 25 minutos. Durante as pausas, priorizem movimentos físicos como alongamentos ou uma breve caminhada.</p>
+
+                <p><strong>Criativos usando o timer Pomodoro online:</strong> Permitam que ideias fluam durante os intervalos. Mantenham um bloco de notas próximo para capturar insights espontâneos que surgem nos momentos de descanso.</p>
+            </section>
+
+            <!-- Second Advertisement -->
+            <div class="ad-strategic">
+                <div class="ad-label">Publicidade</div>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-9321995672209438"
+                     data-ad-slot="5390358519"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
 
-            <!-- Message Display -->
-            <div class="message-display">
-                <p class="encouraging-message" id="encouraging-message">Pronto para usar o timer Pomodoro? Clique em Iniciar!</p>
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2>Perguntas Frequentes - Timer Pomodoro Online</h2>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>Por que 25 minutos é o tempo ideal para um Pomodoro?</summary>
+                        <p>Estudos científicos demonstram que nossa capacidade de concentração máxima dura entre 20 a 25 minutos. O cronômetro Pomodoro de 25 minutos está baseado nessa ciência.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Este timer Pomodoro online funciona sem internet?</summary>
+                        <p>Sim! O PomoChill funciona completamente offline. Após carregar a página uma vez, você pode usar este cronômetro Pomodoro mesmo sem conexão com a internet.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Como o histórico semanal me ajuda?</summary>
+                        <p>O histórico semanal mostra quantos Pomodoros você completou cada dia. Oferece motivação visual e ajuda a identificar padrões produtivos.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Quais são os atalhos de teclado?</summary>
+                        <p>ESPAÇO = Play/Pause, R = Reset, N = Próximo modo, S = Ver estatísticas. Perfeito para máxima produtividade.</p>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Third Advertisement -->
+            <div class="ad-strategic">
+                <div class="ad-label">Publicidade</div>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-9321995672209438"
+                     data-ad-slot="6017932523"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
 
-            <!-- Break Suggestions -->
-            <div class="break-suggestions hidden" id="break-suggestions">
-                <h3 data-i18n="suggestionsForBreak">💡 Sugestões para sua pausa:</h3>
-                <div class="suggestions-list" id="suggestions-list"></div>
-            </div>
-        </section>
+            <!-- About Section -->
+            <section class="about-section">
+                <h2>Sobre o PomoChill</h2>
+                <p>PomoChill é um <strong>timer Pomodoro online grátis</strong> desenvolvido para ajudar estudantes, profissionais e criativos a aumentar sua produtividade usando a técnica Pomodoro. Criado com foco em experiência do usuário, persistência de dados e funcionalidades modernas.</p>
+                
+                <h3>Por que PomoChill?</h3>
+                <ul>
+                    <li>✅ Gratuito: Sem cadastro, sem anúncios intrusivos</li>
+                    <li>✅ Privado: Seus dados ficam no seu navegador</li>
+                    <li>✅ Offline: Funciona sem internet</li>
+                    <li>✅ Moderno: Notificações, histórico, persistência</li>
+                    <li>✅ Acessível: Keyboard shortcuts, dark mode, multilíngue</li>
+                </ul>
+            </section>
+        </main>
 
-        <!-- ANÚNCIO 1 -->
-        <div class="ad-strategic" style="margin: 30px auto;">
-            <p class="ad-label">Publicidade</p>
+        <footer class="footer">
+            <p>&copy; 2025 PomoChill. Todos os direitos reservados.</p>
+            <p>Timer Pomodoro Online Grátis | Técnica Pomodoro para Estudar e Trabalhar</p>
+        </footer>
+    </div>
+
+    <!-- Floating Ad Container (Sticky Bottom) - NOVA FUNCIONALIDADE EXTRA -->
+    <div class="floating-ad-container" id="floating-ad-container">
+        <div class="floating-ad-header">
+            <p class="floating-ad-title">📢 Publicidade</p>
+            <button id="floating-ad-toggle" class="floating-ad-close-btn" aria-label="Expandir/colapsar">▲</button>
+            <button id="floating-ad-close" class="floating-ad-close-btn" aria-label="Fechar">✕</button>
+        </div>
+        <div class="floating-ad-content">
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-9321995672209438"
-                 data-ad-slot="8199812113"
+                 data-ad-slot="7890123456"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
-        </div>
-
-        <!-- Educational Content - OTIMIZADO COM PALAVRAS-CHAVE -->
-        <section class="educational-content">
-            <h2>Guia Completo da Técnica Pomodoro Para Estudar e Trabalhar</h2>
-            
-            <article class="content-article">
-                <h3>Como Funciona a Técnica Pomodoro na Prática com Nosso Timer</h3>
-                <p>A <strong>técnica Pomodoro para estudar</strong> baseia-se em cinco etapas fundamentais que maximizam tanto a produtividade quanto o bem-estar mental. Nosso <strong>timer Pomodoro online grátis</strong> facilita a aplicação de cada etapa. Cada ciclo completo inclui planejamento, execução, pausa e reflexão.</p>
-                
-                <ol>
-                    <li><strong>Escolha uma tarefa específica:</strong> Defina claramente o que será realizado nos próximos 25 minutos. Evite multitarefas.</li>
-                    <li><strong>Configure o cronômetro Pomodoro 25 minutos:</strong> Use nosso <strong>timer online grátis</strong> ou qualquer cronômetro confiável.</li>
-                    <li><strong>Trabalhe com foco total:</strong> Elimine distrações, silencie notificações e concentre-se 100% na tarefa.</li>
-                    <li><strong>Pare quando o timer tocar:</strong> Mesmo que esteja no meio de algo importante, respeite o intervalo.</li>
-                    <li><strong>Faça uma pausa de 5 minutos:</strong> Levante-se, alongue-se, hidrate-se ou respire profundamente.</li>
-                </ol>
-                
-                <p>Após completar 4 ciclos (aproximadamente 2 horas) usando nosso <strong>cronômetro Pomodoro</strong>, faça uma pausa mais longa de 15-30 minutos. Este intervalo permite que seu cérebro processe informações e se prepare para a próxima sessão produtiva.</p>
-
-                <h4>Como Adaptar o Timer Pomodoro Para Diferentes Perfis</h4>
-                <p><strong>Estudantes usando a técnica Pomodoro para estudar:</strong> Alternem entre matérias a cada ciclo para manter o interesse e evitar saturação mental. Use as pausas de 5 minutos para revisar mentalmente o conteúdo aprendido.</p>
-                
-                <p><strong>Profissionais Remotos com o cronômetro Pomodoro:</strong> Definam metas específicas para cada Pomodoro de 25 minutos. Durante as pausas, priorizem movimentos físicos como alongamentos ou uma breve caminhada.</p>
-                
-                <p><strong>Criativos usando o timer Pomodoro online:</strong> Permitam que ideias fluam durante os intervalos. Mantenham um bloco de notas próximo para capturar insights espontâneos que surgem nos momentos de descanso.</p>
-            </article>
-
-            <article class="content-article">
-                <h3>A Ciência Por Trás da Técnica Pomodoro e Nosso Cronômetro de 25 Minutos</h3>
-                <p>Pesquisadores da Universidade de Illinois descobriram que pausas breves durante tarefas longas melhoram significativamente a capacidade de manter foco sustentado. O estudo, publicado na revista Cognition, demonstrou que participantes que usaram a <strong>técnica Pomodoro</strong> mantiveram performance consistente, enquanto aqueles sem pausas apresentaram declínio gradual na atenção.</p>
-                
-                <p>O neurocientista Dr. Daniel Levitin explica que nosso córtex pré-frontal, responsável pela concentração, consome glicose rapidamente durante tarefas que exigem foco. É por isso que usar um <strong>timer Pomodoro online grátis</strong> com pausas regulares permite que essa região cerebral se recupere, restaurando nossa capacidade de atenção sustentada.</p>
-
-                <h4>Benefícios Neurológicos Comprovados da Técnica Pomodoro</h4>
-                <ul>
-                    <li><strong>Restauração da atenção:</strong> Os intervalos de 5 minutos do nosso cronômetro permitem que redes neurais de atenção se recuperem</li>
-                    <li><strong>Consolidação de memória:</strong> Pausas facilitam a transferência de informações da memória de trabalho para memória de longo prazo</li>
-                    <li><strong>Redução do cortisol:</strong> Diminui hormônios do estresse associados ao trabalho intenso prolongado</li>
-                    <li><strong>Aumento da criatividade:</strong> Momentos de "descanso" ativam a rede de modo padrão do cérebro, favorecendo insights</li>
-                </ul>
-                
-                <p>Estudos adicionais da Stanford University mostram que caminhadas curtas durante as pausas do <strong>cronômetro Pomodoro</strong> aumentam a criatividade em até 60%, comparado ao trabalho contínuo sem intervalos.</p>
-            </article>
-        </section>
-
-        <!-- Tips Section - OTIMIZADO -->
-        <section class="tips-section">
-            <h2>Estratégias Avançadas: Como Usar o Timer Pomodoro Para Estudar com Máxima Eficiência</h2>
-            
-            <article class="content-article">
-                <h3>10 Erros Comuns ao Usar a Técnica Pomodoro (e Como Evitá-los)</h3>
-                <p>Após anos observando milhares de usuários do nosso <strong>aplicativo Pomodoro brasileiro</strong>, identificamos os principais erros que impedem o sucesso com o <strong>timer Pomodoro online grátis</strong>. Evitar esses equívocos pode aumentar sua produtividade em até 40%.</p>
-
-                <div class="error-list">
-                    <div class="error-item">
-                        <h4>1. Não planejar tarefas antes de usar o cronômetro Pomodoro</h4>
-                        <p><strong>Erro:</strong> Ligar o timer sem saber exatamente o que fazer.</p>
-                        <p><strong>Solução:</strong> Dedique 5 minutos pela manhã listando tarefas específicas para cada ciclo de 25 minutos.</p>
-                    </div>
-
-                    <div class="error-item">
-                        <h4>2. Ignorar as pausas obrigatórias do timer</h4>
-                        <p><strong>Erro:</strong> Continuar trabalhando quando o cronômetro Pomodoro toca por estar "no fluxo".</p>
-                        <p><strong>Solução:</strong> Respeite religiosamente os intervalos de 5 minutos. Eles são essenciais para manter a eficiência da técnica Pomodoro.</p>
-                    </div>
-
-                    <div class="error-item">
-                        <h4>3. Usar pausas para atividades estimulantes</h4>
-                        <p><strong>Erro:</strong> Checar redes sociais ou notícias durante os 5 minutos de intervalo.</p>
-                        <p><strong>Solução:</strong> Prefira atividades físicas: alongamentos, respiração ou hidratação.</p>
-                    </div>
-
-                    <div class="error-item">
-                        <h4>4. Não adaptar o timer Pomodoro à natureza da tarefa</h4>
-                        <p><strong>Erro:</strong> Usar sempre 25 minutos para qualquer atividade.</p>
-                        <p><strong>Solução:</strong> Tarefas criativas podem precisar de ciclos de 45 minutos; administrativas, de 20 minutos.</p>
-                    </div>
-
-                    <div class="error-item">
-                        <h4>5. Tentar aplicar a técnica Pomodoro em ambientes com muitas distrações</h4>
-                        <p><strong>Erro:</strong> Usar o cronômetro em locais barulhentos ou com interrupções frequentes.</p>
-                        <p><strong>Solução:</strong> Crie um "santuário de foco": ambiente silencioso, organizado e livre de tentações para aproveitar ao máximo o timer Pomodoro online grátis.</p>
-                    </div>
-                </div>
-
-                <p>Dominar esses aspectos transforma a <strong>técnica Pomodoro para estudar</strong> de uma técnica simples em um sistema poderoso de alta performance. A chave é personalizar o método às suas necessidades específicas usando nosso <strong>aplicativo Pomodoro brasileiro</strong>.</p>
-            </article>
-
-            <article class="content-article">
-                <h3>Como Combinar o Timer Pomodoro com Outras Metodologias de Produtividade</h3>
-                <p>O <strong>cronômetro Pomodoro 25 minutos</strong> funciona excepcionalmente bem quando combinado com outros sistemas de produtividade. Aqui estão as melhores integrações testadas por nossa comunidade:</p>
-
-                <h4>Técnica Pomodoro + Getting Things Done (GTD)</h4>
-                <p>Use o sistema GTD para capturar e organizar todas as tarefas, depois aplique nosso <strong>timer Pomodoro online grátis</strong> para executá-las. Durante a revisão semanal do GTD, estime quantos ciclos de 25 minutos cada projeto exigirá.</p>
-
-                <h4>Cronômetro Pomodoro + Matriz Eisenhower</h4>
-                <p>Classifique tarefas por urgência/importância, então dedique mais Pomodoros às atividades do quadrante "importante e não urgente" - onde estão seus objetivos de longo prazo.</p>
-
-                <h4>Timer Pomodoro + Time Blocking</h4>
-                <p>Reserve blocos específicos na agenda para sessões com o <strong>cronômetro Pomodoro</strong>. Por exemplo: "09:00-11:00: 4 Pomodoros para projeto X". Isso garante que tempo de foco tenha prioridade sobre reuniões.</p>
-
-                <h4>Técnica Pomodoro + Método 1-3-5</h4>
-                <p>Diariamente, escolha 1 tarefa grande (4-6 Pomodoros de 25 minutos), 3 médias (2 Pomodoros cada) e 5 pequenas (1 Pomodoro cada). Isso cria um dia balanceado e realizável com nosso <strong>timer online grátis</strong>.</p>
-            </article>
-        </section>
-
-        <!-- Tools Section -->
-        <section class="tools-section">
-            <h2>Ferramentas de Produtividade e Calculadoras Para Técnica Pomodoro</h2>
-            
-            <div class="tool-container">
-                <h3>Calculadora de Meta Diária com Cronômetro Pomodoro</h3>
-                <p>Descubra quantos ciclos de 25 minutos você precisa para atingir seus objetivos diários de produtividade com nosso <strong>timer Pomodoro online grátis</strong>:</p>
-                
-                <div class="calculator">
-                    <label for="work-hours">Horas disponíveis para trabalho focado:</label>
-                    <input type="number" id="work-hours" min="1" max="16" value="8" class="form-control">
-                    
-                    <label for="pomodoro-duration">Duração desejada por Pomodoro (minutos):</label>
-                    <input type="number" id="pomodoro-duration" min="15" max="60" value="25" class="form-control">
-                    
-                    <button onclick="calculatePomodoros()" class="calc-btn">Calcular</button>
-                    
-                    <div id="calc-result" class="calc-result" style="display: none;">
-                        <strong>Resultado:</strong> <span id="result-text"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tool-container">
-                <h3>Guia: Como Usar o Timer Pomodoro Por Profissão</h3>
-                <div class="profession-guides">
-                    <div class="guide-item">
-                        <h4>👨‍💻 Desenvolvedores</h4>
-                        <p>Ciclos de 45 min para coding, 15 min para debugging, pausas com exercícios oculares usando o cronômetro</p>
-                    </div>
-                    <div class="guide-item">
-                        <h4>✍️ Escritores</h4>
-                        <p>25 min escrevendo com o timer Pomodoro, 5 min caminhando, música instrumental durante foco</p>
-                    </div>
-                    <div class="guide-item">
-                        <h4>🎨 Designers</h4>
-                        <p>50 min criando, 10 min inspiração visual, pausas longas para insights com a técnica Pomodoro</p>
-                    </div>
-                    <div class="guide-item">
-                        <h4>📚 Estudantes</h4>
-                        <p>Use a <strong>técnica Pomodoro para estudar</strong>: 25 min estudo, 5 min revisão mental, alternância entre matérias</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section - OTIMIZADO -->
-        <section class="faq-section">
-            <h2>Perguntas Frequentes sobre Timer Pomodoro Online Grátis e Técnica Pomodoro</h2>
-            <div class="faq-list">
-                <details class="faq-item">
-                    <summary>Quantos ciclos com o cronômetro Pomodoro são recomendados por dia?</summary>
-                    <div class="faq-answer">
-                        <p>O número ideal varia entre 8 a 16 ciclos de 25 minutos diários, dependendo do seu perfil e objetivos. Iniciantes devem começar com 6-8 Pomodoros usando nosso <strong>timer online grátis</strong> e aumentar gradualmente. Profissionais experientes conseguem manter alta produtividade com 12-16 ciclos, intercalando tarefas exigentes com pausas longas de 15-30 minutos.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary>Posso personalizar o tempo do cronômetro Pomodoro?</summary>
-                    <div class="faq-answer">
-                        <p>Absolutamente! Embora 25 minutos seja o padrão da <strong>técnica Pomodoro</strong>, você pode adaptar nosso <strong>timer</strong> conforme o tipo de trabalho. Tarefas criativas podem se beneficiar de ciclos de 45-50 minutos, enquanto atividades administrativas funcionam bem com 15-20 minutos. O importante é manter a consistência e respeitar as pausas proporcionais.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary>O que fazer se for interrompido durante um ciclo do timer Pomodoro?</summary>
-                    <div class="faq-answer">
-                        <p>Se a interrupção for inevitável, pare o <strong>cronômetro Pomodoro</strong> e reinicie quando possível. Para interrupções menores, use a técnica "Informar, Negociar, Retomar": informe que está focado, negocie um horário para responder depois, anote a demanda e continue o ciclo de 25 minutos. Com prática, você reduzirá drasticamente as interrupções.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary>A técnica Pomodoro para estudar tem base científica comprovada?</summary>
-                    <div class="faq-answer">
-                        <p>Sim! Pesquisas da Universidade de Illinois e Stanford comprovam que pausas regulares usando a <strong>técnica Pomodoro</strong> mantêm a performance cognitiva e aumentam a criatividade. Estudos de neurociência mostram que intervalos de 5 minutos permitem a restauração do córtex pré-frontal, região responsável pela concentração e tomada de decisões.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary>Como manter disciplina para não pular as pausas do timer?</summary>
-                    <div class="faq-answer">
-                        <p>As pausas são fundamentais para a eficácia do <strong>cronômetro Pomodoro 25 minutos</strong>. Configure alarmes audíveis, deixe uma garrafa d'água visível como lembrete, e planeje atividades específicas para cada intervalo de 5 minutos. Lembre-se: pular pausas diminui a produtividade nas sessões seguintes. A disciplina nas pausas é tão importante quanto no trabalho.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary>Posso usar música durante os ciclos do timer Pomodoro?</summary>
-                    <div class="faq-answer">
-                        <p>Música pode ajudar ou atrapalhar, dependendo do tipo de tarefa. Para trabalhos repetitivos, música instrumental ou sons ambientes são benéficos durante o uso do <strong>timer Pomodoro online grátis</strong>. Para tarefas que exigem processamento de linguagem (escrita, leitura), o silêncio é mais eficaz. Experimente diferentes opções e observe qual maximiza seu foco com o cronômetro.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary>Como aplicar a técnica Pomodoro em trabalho em equipe?</summary>
-                    <div class="faq-answer">
-                        <p>Sincronize ciclos de 25 minutos com colegas para reuniões e pausas simultâneas usando o mesmo <strong>timer Pomodoro</strong>. Use ferramentas colaborativas para comunicar quando está em modo foco. Defina "horários de disponibilidade" fora dos Pomodoros para dúvidas urgentes. Equipes que adotam a <strong>técnica Pomodoro</strong> coletivamente relatam 30% de aumento na produtividade grupal.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary>O timer Pomodoro online grátis funciona completamente offline?</summary>
-                    <div class="faq-answer">
-                        <p>Sim! O <strong>PomoChill - aplicativo Pomodoro brasileiro</strong> utiliza service workers para funcionar completamente offline após o primeiro carregamento. Você pode usar o <strong>cronômetro Pomodoro 25 minutos</strong>, visualizar estatísticas e acessar dicas mesmo sem conexão à internet. Ideal para ambientes com internet instável ou para manter foco sem distrações online.</p>
-                    </div>
-                </details>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section class="about-section">
-            <h2>Sobre o PomoChill - Aplicativo Pomodoro Brasileiro</h2>
-            <div class="about-content">
-                <p>O <strong>PomoChill</strong> nasceu da necessidade de combinar produtividade científica com bem-estar pessoal. Nossa equipe de especialistas em psicologia cognitiva e desenvolvedores apaixonados por eficiência criou o melhor <strong>timer Pomodoro online grátis</strong> do Brasil, uma plataforma que vai além de um simples cronômetro.</p>
-                
-                <p>Diferente de outras ferramentas, nosso <strong>aplicativo Pomodoro brasileiro</strong> oferece conteúdo educativo continuamente atualizado, baseado nas últimas pesquisas sobre neurociência da atenção e métodos de alta performance. Acreditamos que produtividade verdadeira usando a <strong>técnica Pomodoro</strong> inclui equilíbrio, descanso consciente e crescimento pessoal.</p>
-
-                <h3>Nossa Missão</h3>
-                <p>Democratizar a <strong>técnica Pomodoro para estudar</strong> e trabalhar, tornando-a acessível para estudantes, profissionais e criativos brasileiros que buscam excelência sem sacrificar qualidade de vida através do nosso <strong>cronômetro Pomodoro 25 minutos</strong> gratuito.</p>
-
-                <h3>Valores do PomoChill</h3>
-                <ul>
-                    <li><strong>Simplicidade:</strong> Interfaces clean e intuitivas para o melhor timer Pomodoro</li>
-                    <li><strong>Ciência:</strong> Métodos baseados em evidências da técnica Pomodoro original</li>
-                    <li><strong>Bem-estar:</strong> Produtividade sustentável e saudável com pausas regulares</li>
-                    <li><strong>Comunidade:</strong> Compartilhamento de experiências e dicas sobre técnica Pomodoro</li>
-                </ul>
-            </div>
-        </section>
-    </div>
-
-    <!-- Fixed UI Elements -->
-    
-    <!-- Stats Button -->
-    <button class="stats-btn" id="stats-btn" title="Estatísticas">📊</button>
-    
-    <!-- Settings Button -->
-    <button class="settings-btn" id="settings-btn" title="Configurações">⚙️</button>
-
-    <!-- ========== FLOATING COLLAPSIBLE AD (Sticky Bottom) ========== -->
-    <div class="floating-ad-container" id="floating-ad-container">
-        <div class="floating-ad-header" id="floating-ad-header">
-            <p class="floating-ad-title">📢 Publicidade</p>
-            <div style="display: flex; gap: 10px; align-items: center;">
-                <button class="floating-ad-toggle-btn" id="floating-ad-toggle" title="Expandir/Colapsar">▲</button>
-                <button class="floating-ad-close-btn" id="floating-ad-close" title="Fechar">✕</button>
-            </div>
-        </div>
-        <div class="floating-ad-content" id="floating-ad-content">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-9321995672209438"
-                 data-ad-slot="2431951823"
-                 data-ad-format="banner"
-                 data-full-width-responsive="false"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
     </div>
-
-    <!-- Settings Modal -->
-    <div class="modal hidden" id="settings-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 data-i18n="settings">⚙️ Configurações do Timer Pomodoro</h3>
-                <button class="close-btn" id="close-settings">×</button>
-            </div>
-            <div class="modal-body">
-                <div class="setting-group">
-                    <label for="work-duration" data-i18n="focusDuration">Duração do Foco (minutos):</label>
-                    <input type="number" id="work-duration" class="form-control" min="1" max="60" value="25">
-                </div>
-                <div class="setting-group">
-                    <label for="short-break-duration" data-i18n="shortBreakDuration">Pausa Curta (minutos):</label>
-                    <input type="number" id="short-break-duration" class="form-control" min="1" max="30" value="5">
-                </div>
-                <div class="setting-group">
-                    <label for="long-break-duration" data-i18n="longBreakDuration">Pausa Longa (minutos):</label>
-                    <input type="number" id="long-break-duration" class="form-control" min="1" max="60" value="15">
-                </div>
-                <div class="setting-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="sound-enabled" checked>
-                        <span class="checkmark"></span>
-                        <span data-i18n="notificationSounds">Sons de Notificação</span>
-                    </label>
-                </div>
-                <div class="error-message hidden" id="error-message"></div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn--primary" id="save-settings" data-i18n="save">Salvar</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Stats Modal -->
-    <div class="modal hidden" id="stats-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 data-i18n="yourJourney">📊 Sua Jornada com o Timer Pomodoro</h3>
-                <button class="close-btn" id="close-stats">×</button>
-            </div>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-value" id="cycles-completed">0</div>
-                    <div class="stat-label" data-i18n="completedCycles">Ciclos Completos</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="focus-time">0h</div>
-                    <div class="stat-label" data-i18n="focusTime">Tempo de Foco</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="breaks-taken">0</div>
-                    <div class="stat-label" data-i18n="breaksTaken">Pausas Feitas</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Hidden video element for YouTube API -->
-    <div id="chill-video" style="display: none;"></div>
 
     <!-- Scripts -->
-    <script src="translations.js"></script>
     <script src="app.js"></script>
-    <script src="adsense-optimizer.js"></script>
-    
-    <!-- YouTube API -->
-    <script src="https://www.youtube.com/iframe_api"></script>
-
-    <!-- ========== FLOATING AD CONTROLLER ========== -->
-    <script>
-    class FloatingAdManager {
-        constructor() {
-            this.container = document.getElementById('floating-ad-container');
-            this.header = document.getElementById('floating-ad-header');
-            this.content = document.getElementById('floating-ad-content');
-            this.toggleBtn = document.getElementById('floating-ad-toggle');
-            this.closeBtn = document.getElementById('floating-ad-close');
-            this.isCollapsed = false;
-            this.showDelay = 30000; // 30 segundos
-            this.init();
-        }
-
-        init() {
-            // Mostrar floating ad após 30 segundos
-            setTimeout(() => this.show(), this.showDelay);
-
-            // Event listeners
-            this.header.addEventListener('click', () => this.toggle());
-            this.toggleBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                this.toggle();
-            });
-            this.closeBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                this.close();
-            });
-
-            // Rastrear evento de exibição
-            setTimeout(() => {
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'floating_ad_shown', {
-                        'event_category': 'AdSense',
-                        'event_label': 'Floating Ad Displayed'
-                    });
-                }
-            }, this.showDelay);
-        }
-
-        show() {
-            this.container.classList.add('active');
-            
-            // Load ad
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        }
-
-        hide() {
-            this.container.classList.remove('active');
-        }
-
-        toggle() {
-            this.isCollapsed = !this.isCollapsed;
-            if (this.isCollapsed) {
-                this.container.classList.add('collapsed');
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'floating_ad_collapsed', {
-                        'event_category': 'AdSense',
-                        'event_label': 'User Collapsed Floating Ad'
-                    });
-                }
-            } else {
-                this.container.classList.remove('collapsed');
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'floating_ad_expanded', {
-                        'event_category': 'AdSense',
-                        'event_label': 'User Expanded Floating Ad'
-                    });
-                }
-            }
-        }
-
-        close() {
-            this.hide();
-            
-            // Rastrear fechamento
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'floating_ad_closed', {
-                    'event_category': 'AdSense',
-                    'event_label': 'User Closed Floating Ad'
-                });
-            }
-
-            // Opção: Mostrar novamente após 5 minutos
-            setTimeout(() => this.show(), 300000); // 5 minutos
-        }
-    }
-
-    // Inicializar quando DOM estiver pronto
-    document.addEventListener('DOMContentLoaded', () => {
-        window.floatingAdManager = new FloatingAdManager();
-    });
-    </script>
-
-    <!-- Calculator Script -->
-    <script>
-        function calculatePomodoros() {
-            const workHours = parseFloat(document.getElementById('work-hours').value);
-            const pomoDuration = parseFloat(document.getElementById('pomodoro-duration').value);
-            
-            if (workHours && pomoDuration) {
-                const totalMinutes = workHours * 60;
-                const cycleTime = pomoDuration + 5; // Include 5-minute break
-                const possibleCycles = Math.floor(totalMinutes / cycleTime);
-                const focusTime = possibleCycles * (pomoDuration / 60);
-                
-                const resultDiv = document.getElementById('calc-result');
-                const resultText = document.getElementById('result-text');
-                
-                resultText.innerHTML = `
-                    Você pode completar <strong>${possibleCycles} ciclos Pomodoro</strong> 
-                    totalizando <strong>${focusTime.toFixed(1)} horas</strong> de foco puro usando nosso timer.
-                `;
-                resultDiv.style.display = 'block';
-            }
-        }
-    </script>
-
-    <!-- AdSense Initialization Script -->
-    <script>
-        // Initialize ads after page load
-        window.addEventListener('load', function() {
-            // Push ads for desktop/tablet
-            if (window.innerWidth > 768) {
-                // Main strategic ads
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            }
-            
-            // Mobile anchor ad
-            if (window.innerWidth <= 768) {
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            }
-            
-            // Lazy load ads on scroll
-            const adObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const adContainer = entry.target;
-                        if (!adContainer.classList.contains('ad-loaded')) {
-                            adContainer.classList.add('ad-loaded');
-                        }
-                    }
-                });
-            });
-
-            // Observe all strategic ad containers
-            document.querySelectorAll('.ad-strategic').forEach(ad => {
-                adObserver.observe(ad);
-            });
-        });
-    </script>
-
-    <script>
-        // Rastreamento de eventos do Timer Pomodoro
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            // Evento: Timer iniciado
-            const startBtn = document.getElementById('start-pause-btn');
-            if (startBtn) {
-                startBtn.addEventListener('click', function() {
-                    gtag('event', 'timer_started', {
-                        'event_category': 'Timer',
-                        'event_label': 'Pomodoro Started'
-                    });
-                });
-            }
-            
-            // Evento: Ciclo completado
-            window.addEventListener('pomodoroComplete', function() {
-                gtag('event', 'cycle_completed', {
-                    'event_category': 'Timer',
-                    'event_label': 'Pomodoro Cycle Completed'
-                });
-            });
-            
-            // Evento: Configurações alteradas
-            const saveSettingsBtn = document.getElementById('save-settings');
-            if (saveSettingsBtn) {
-                saveSettingsBtn.addEventListener('click', function() {
-                    gtag('event', 'settings_changed', {
-                        'event_category': 'Settings',
-                        'event_label': 'User Changed Settings'
-                    });
-                });
-            }
-            
-            // Evento: Idioma alterado
-            const langSelector = document.getElementById('language');
-            if (langSelector) {
-                langSelector.addEventListener('change', function(e) {
-                    gtag('event', 'language_changed', {
-                        'event_category': 'Language',
-                        'event_label': e.target.value
-                    });
-                });
-            }
-            
-            // Evento: Clique em anúncio (monitorar performance)
-            document.querySelectorAll('.adsbygoogle').forEach(function(ad, index) {
-                ad.addEventListener('click', function() {
-                    gtag('event', 'ad_clicked', {
-                        'event_category': 'AdSense',
-                        'event_label': 'Ad Position ' + (index + 1)
-                    });
-                });
-            });
-        });
-    </script>
 </body>
 </html>
