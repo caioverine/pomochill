@@ -4323,6 +4323,62 @@ select.form-control {
     font-weight: var(--font-weight-semibold);
 }
 
+.benefits-section,
+.use-cases-section,
+.comparison-section,
+.history-section {
+    margin: 40px 0;
+    padding: 25px;
+    background: var(--color-surface);
+    border-radius: 8px;
+    border-left: 4px solid var(--color-primary);
+}
+
+.benefits-section h2,
+.use-cases-section h2,
+.comparison-section h2,
+.history-section h2 {
+    color: var(--color-primary);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.benefits-section h3,
+.use-cases-section h3,
+.comparison-section h3,
+.history-section h3 {
+    color: var(--color-text);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.benefits-section ul,
+.use-cases-section ul,
+.comparison-section ul,
+.history-section ul {
+    margin: 15px 0;
+    padding-left: 25px;
+}
+
+.benefits-section li,
+.use-cases-section li,
+.comparison-section li,
+.history-section li {
+    margin: 10px 0;
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+.benefits-section p,
+.use-cases-section p,
+.comparison-section p,
+.history-section p {
+    margin: 15px 0;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .weekly-chart {
